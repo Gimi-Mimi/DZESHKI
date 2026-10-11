@@ -1,0 +1,155 @@
+ЗАДАЧА 1 
+
+TAX_RATE = 0.13
+
+Your_Income = int(input("Введите ваш доход за год: "))
+
+Your_Tax = Your_Income * TAX_RATE
+
+Net_Income = Your_Income - Your_Tax
+
+print(f"Общая сумма дохода: {Your_Income:.2f}")
+print(f"Сумма рассчитанного налога: {Your_Tax:.2f}")
+print(f"Сумма «на руки» после вычета налога: {Net_Income:.2f}")
+
+ЗАДАЧА 2
+
+weight, height = map(float, input("Введите вес (кг) и рост (м) через пробел: ").split())
+
+bmi = weight / (height * height)
+
+print(f"Ваш ИМТ: {bmi:.1f}")
+
+ЗАДАЧА 3
+
+USD_TO_RUB = 95.50
+
+def convert(amount_usd):
+    """
+       Конвертирует сумму из долларов в рубли по заданному курсу.
+       Принимает: amount_usd (float) - сумма в долларах.
+       Возвращает: float - сумма в рублях.
+       """
+    rub = USD_TO_RUB * amount_usd
+    return rub
+
+Dollars = (float(input("Введите сумму в $: ")))
+
+result = convert(Dollars)
+
+print(f"Ваша сумма в рублях: {result:.2f}")
+
+ЗАДАЧА 4 
+
+import math
+
+def calculate_rectangle_area(width, height):
+    """
+    Рассчитывает площадь прямоугольника по ширине и высоте.
+    Принимает: width (float), height (float).
+    Возвращает: float - площадь прямоугольника.
+    """
+    return width * height
+
+def calculate_circle_area(radius):
+    """
+    Рассчитывает площадь круга по его радиусу.
+    Принимает: radius (float).
+    Возвращает: float - площадь круга.
+    """
+    return math.pi * (radius ** 2)
+
+
+rect_width = float(input("Введите ширину прямоугольника: "))
+
+rect_height = float(input("Введите высоту прямоугольника: "))
+
+rect_area = calculate_rectangle_area(rect_width, rect_height)
+print(f"Площадь прямоугольника: {rect_area:.2f}")
+
+
+circle_radius = float(input("Введите радиус круга: "))
+
+circle_area = calculate_circle_area(circle_radius)
+
+print(f"Площадь круга: {circle_area:.2f}")
+
+
+ЗАДАЧА 5 
+
+amount = int(input("Введите сумму для снятия (кратную 100): "))
+
+# Считаем купюры по 5000
+b5000 = amount // 5000
+amount = amount % 5000
+
+# Считаем купюры по 2000
+b2000 = amount // 2000
+amount = amount % 2000
+
+# Считаем купюры по 1000
+b1000 = amount // 1000
+amount = amount % 1000
+
+# Считаем купюры по 500
+b500 = amount // 500
+amount = amount % 500
+
+# Считаем купюры по 200
+b200 = amount // 200
+amount = amount % 200
+
+# Считаем купюры по 100
+b100 = amount // 100
+amount = amount % 100
+
+# Выводим подробный отчет
+print("\nОтчет о выдаче купюр:")
+print(f"Купюры 5000: {b5000} шт.")
+print(f"Купюры 2000: {b2000} шт.")
+print(f"Купюры 1000: {b1000} шт.")
+print(f"Купюры 500:  {b500} шт.")
+print(f"Купюры 200:  {b200} шт.")
+print(f"Купюры 100:  {b100} шт.")
+
+ЗАДАЧА 6 
+
+import math
+
+def calculate_distance(x1, y1, x2, y2):
+    """
+    Рассчитывает расстояние между двумя точками на плоскости.
+    Принимает: координаты x1, y1 первой точки и x2, y2 второй точки.
+    Возвращает: float - длину отрезка.
+    """
+    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+
+def calculate_triangle_area(a, b, c):
+    """
+    Рассчитывает площадь треугольника по формуле Герона.
+    Принимает: длины трех сторон a, b, c.
+    Возвращает: float - площадь треугольника.
+    """
+    p = (a + b + c) / 2
+    area = math.sqrt(p * (p - a) * (p - b) * (p - c))
+    return area
+
+# Основная программа
+x_a, y_a = map(float, input("Координаты точки A: ").split())
+x_b, y_b = map(float, input("Координаты точки B: ").split())
+x_c, y_c = map(float, input("Координаты точки C: ").split())
+
+# 1. Находим длины сторон, вызывая первую функцию 3 раза
+side_ab = calculate_distance(x_a, y_a, x_b, y_b)
+side_bc = calculate_distance(x_b, y_b, x_c, y_c)
+side_ca = calculate_distance(x_c, y_c, x_a, y_a)
+
+# 2. Передаем длины во вторую функцию для расчета площади
+triangle_area = calculate_triangle_area(side_ab, side_bc, side_ca)
+
+# 3. Выводим результат
+print(f"\nПлощадь треугольника: {triangle_area:.2f}")
+
+
+
+
