@@ -1,1 +1,69 @@
+ЗАДАЧА 1
+
+year = int(input("Введите год: "))
+
+if year % 100 == 0:
+    print("YES")
+else:
+    print("NO")
+
+ЗААДЧА 2 
+
+, b, c = map(float, input("Введите стороны треугольника(через пробел): ").split())
+
+if a == b == c:
+    print("Равносторонний")
+elif a == b or b == c or a == c:
+    print("Равнобедренный")
+else:
+    print("Разносторонний")
+
+ЗАДАЧА 3 
+
+month =  int(input("Порядковый номер месяца: "))
+
+if month == 1 or month == 3 or month == 5 or  month == 7 and month == 8 or month == 10 or month == 12 :
+    print(31)
+elif month == 2:
+    print(28)
+else:
+    print(30)
+
+ЗАДАЧА 4 
+
+weight = int(input("Введите ваш вес (кг): "))
+
+if weight < 60:
+    print("Легкий вес")
+elif weight < 64:
+    print("Первый полусредний вес")
+elif weight < 69:
+    print("Полусредний вес")
+else:
+    print("Вес выходит за рамки указанных категорий")
+
+ЗАДАЧА 5 
+
+color1, color2 = input("Введите два основных цвета через пробел (красный, синий, желтый): ").split()
+
+# Проверяем, что первый цвет является основным
+is_c1_valid = (color1 == 'красный' or color1 == 'синий' or color1 == 'желтый')
+
+# Проверяем, что второй цвет является основным
+is_c2_valid = (color2 == 'красный' or color2 == 'синий' or color2 == 'желтый')
+
+# Если хотя бы один цвет введен неверно — выводим ошибку
+if not is_c1_valid or not is_c2_valid:
+    print("ошибка")
+    
+# Проверяем комбинации цветов
+elif (color1 == 'красный' and color2 == 'синий') or (color1 == 'синий' and color2 == 'красный'):
+    print("фиолетовый")
+elif (color1 == 'красный' and color2 == 'желтый') or (color1 == 'желтый' and color2 == 'красный'):
+    print("оранжевый")
+elif (color1 == 'синий' and color2 == 'желтый') or (color1 == 'желтый' and color2 == 'синий'):
+    print("зеленый")
+else:
+    print(color1)
+
 
