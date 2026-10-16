@@ -1,0 +1,92 @@
+Задача 1 
+
+temperature = float(input("Введите вашу температуру: "))
+pressure, pulse = map(int, input("Введите ваше давление и пульс(через пробел): ").split())
+
+# 1.  (Требуется врач)
+if temperature < 35 or temperature > 38 or pressure < 105 or pressure > 140 or pulse < 55 or pulse > 110:
+    print("Состояние: Требуется врач")
+
+# 2. (Легкое недомогание)
+elif 35 <= temperature < 36 or 37 < temperature <= 38 or 105 <= pressure < 110 or 130 < pressure <= 140 or 55 <= pulse < 60 or 100 < pulse <= 110:
+    print("Состояние: Легкое недомогание")
+
+# 3. Всё остальное — норма
+else:
+    print("Состояние: Нормальное состояние")
+
+Задача 2 
+
+pocket_number = int(input("Введите номер кармана в рулетке: "))
+
+if not (0 <= pocket_number <= 36):
+    print("ошибка ввода")
+
+
+elif pocket_number== 0:
+    print("зеленый")
+
+# 3. Объединяем 1-й и 3-й промежутки (где нечетные — красные)
+elif (1 <= pocket_number <= 10) or (19 <= pocket_number <= 28):
+    if pocket_number % 2 != 0:  # Если число нечётное
+        print("красный")
+    else:                # Если число чётное
+        print("черный")
+elif (11 <= pocket_number <= 18) or (29 <=pocket_number <= 36):
+    if pocket_number  % 2 != 0:  # Если число нечётное
+        print("черный")
+    else:                # Если число чётное
+        print("красный")
+
+Задача 3 
+
+line1, column1 = map(int, input("Введите номер строки и столбца для первой клетки от 1 до 8(через пробел): ").split())
+line2, column2 = map(int, input("Введите номер строки и столбца для второй клетки от 1 до 8(через пробел): ").split())
+
+if 1 <= line1 <= 8 and 1 <= column1 <= 8 and 1 <= line2 <= 8 and 1 <= column2 <= 8:
+    # сначала проверяем промежуток каждого столбца и клетки
+    # потом смотрим какая клетка
+    # если сумма строки и столбца четная то клетка белая, не четная - черная
+    if (line1 + column1) % 2 != 0:
+        color1 = "Черный"
+    else:
+        color1 = "Белый"
+
+    if (line2 + column2) % 2 != 0:
+        color2 = "Черный"
+    else:
+        color2 = "Белый"
+
+    if color1 == color2:
+        print("YES")
+    else:
+        print("NO")
+
+else:
+    # Этот else стоит на одном уровне с самым первым if
+    print("ошибка ввода")
+
+Задача 4 
+
+col1, row1 = map(int, input("Введите столбец и строку 1 клетки (через пробел): ").split())
+col2, row2 = map(int, input("Введите столбец и строку 2 клетки (через пробел): ").split())
+
+
+if 1 <= col1 <= 8 and 1 <= row1 <= 8 and 1 <= col2 <= 8 and 1 <= row2 <= 8:
+
+    # 2. Вычисляем разницу по горизонтали и вертикали
+    diff_col = col1 - col2
+    diff_row = row1 - row2
+
+    # 3. Используем логический оператор or для проверки диагоналей
+    # Слон ходит по диагонали, если разницы равны ИЛИ противоположны по знаку
+    if diff_col == diff_row or diff_col == -diff_row:
+        print("YES")
+    else:
+        print("NO")
+
+# Если координаты выходят за рамки шахматной доски
+else:
+    print("ошибка ввода")
+
+
